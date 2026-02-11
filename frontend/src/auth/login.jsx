@@ -59,7 +59,6 @@ export default function Login() {
       });
 
       if (error) throw error;
-
       if (data?.session && data?.user) {
 
         dispatch(
@@ -69,7 +68,6 @@ export default function Login() {
             isAuthenticated: true,
           })
         );
-        
         setSuccess("Login successful! Redirecting...");
 
         setTimeout(() => {
