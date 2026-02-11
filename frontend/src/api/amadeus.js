@@ -1,6 +1,6 @@
 export async function searchHotels(cityCode, checkInDate, checkOutDate, adults) {
   const res = await fetch(
-    `http://localhost:5000/api/hotel-list?cityCode=${cityCode}&checkInDate=${checkInDate}&checkOutDate=${checkOutDate}&adults=${adults}`
+    `https://hotelbooking-app-hvg8.onrender.com/api/hotel-list?cityCode=${cityCode}&checkInDate=${checkInDate}&checkOutDate=${checkOutDate}&adults=${adults}`
   );
 
   if (!res.ok) {

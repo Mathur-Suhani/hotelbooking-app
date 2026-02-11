@@ -117,7 +117,7 @@ export default function HotelSearch() {
         console.log('Fetching hotels for:', city);
         
         const res = await fetch(
-          `http://localhost:5000/api/hotel-list-with-prices?cityCode=${city}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}`
+          `https://hotelbooking-app-hvg8.onrender.com/api/hotel-list-with-prices?cityCode=${city}&checkIn=${checkIn}&checkOut=${checkOut}&adults=${adults}`
         );
 
         if (!res.ok) {
