@@ -1,70 +1,235 @@
-# Getting Started with Create React App
+Hotel Booking & Comparison Platform
+A full-stack hotel booking application with advanced search, comparison features, and data visualization built with React and Node.js.
+Features
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+User Authentication: Secure login/signup flow using Supabase
+Hotel Search: Real-time hotel availability search via Amadeus API
+Advanced Filtering: Filter by date range, location, guests, price, and ratings
+Multi-Select Comparison: Select and compare multiple hotels side-by-side
+Data Visualization: Interactive charts showing price trends and rating distributions
+Pagination: Efficient data loading with "Load More" functionality
+Persistent State: User selections saved in local storage
+Responsive Design: Mobile-friendly UI built with Material-UI
 
-## Available Scripts
+Tech Stack
+Frontend
 
-In the project directory, you can run:
+React 18+ with Hooks
+Redux Toolkit for state management
+Material-UI (MUI) for UI components
+Recharts for data visualization
+Supabase for authentication
+React Router for navigation
 
-### `npm start`
+Backend
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Node.js with Express
+Amadeus API for hotel data
+Axios for HTTP requests
+CORS for cross-origin resource sharing
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Prerequisites
+Before you begin, ensure you have the following installed:
 
-### `npm test`
+Node.js (v16 or higher)
+npm (v8 or higher)
+Git
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+You'll also need API credentials from:
 
-### `npm run build`
+Amadeus for Developers - Get your API Key and Secret
+Supabase - Create a project and get your URL and Anon Key
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Installation & Setup
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the Repository
+    git clone https://github.com/yourusername/hotel-booking-platform.git
+    cd hotel-booking-platform
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Backend Setup
+    Navigate to the backend directory and install dependencies:
+    bashcd backend
+    npm init -y
+    npm install express axios cors dotenv
+    npm install amadeus
 
-### `npm run eject`
+    a. Configure Environment Variables
+    Create a .env file in the backend directory:
+    env# Amadeus API Credentials
+    AMADEUS_API_KEY=your_amadeus_api_key
+    AMADEUS_API_SECRET=your_amadeus_api_secret
+    # Server Configuration
+    PORT=5000
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+    b. Start the Backend Server
+    node index.js
+    The backend server will run on http://localhost:5000
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. Frontend Setup
+    Open a new terminal and navigate to the frontend directory:
+    bashcd frontend
+    Install Dependencies
+    bash# Core dependencies
+    npm install
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+    # Supabase for authentication
+    npm install @supabase/supabase-js
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    # Data visualization
+    npm install recharts
 
-## Learn More
+    # Material-UI components
+    npm install @mui/material @emotion/react @emotion/styled
+    npm install @mui/icons-material
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    # State management
+    npm install @reduxjs/toolkit react-redux
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    # Routing
+    npm install react-router-dom
 
-### Code Splitting
+    a. Configure Environment Variables
+    Create a . supabaseClientfile in the frontend directory:
+    Supabase Configuration
+    REACT_APP_SUPABASE_URL=your_supabase_project_url
+    REACT_APP_SUPABASE_ANON_KEY=your_supabase_anon_key
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+    # Backend API URL
+    REACT_APP_API_URL=http://localhost:5000
+    Start the Frontend Application
+    npm start
 
-### Analyzing the Bundle Size
+The application will open in your browser at http://localhost:3000
+Project Structure
+hotelbooking-app/
+|
++-- backend/
+|   +-- node_modules/
+|   +-- .env
+|   +-- amadeus.js
+|   +-- index.js
+|   +-- package-lock.json
+|   +-- package.json
+|
++-- frontend/
+|   +-- node_modules/
+|   +-- public/
+|   +-- src/
+|   |   +-- api/
+|   |   |   +-- amadeus.js
+|   |   +-- auth/
+|   |   |   +-- login.jsx
+|   |   +-- components/
+|   |   |   +-- compare.jsx
+|   |   |   +-- hotelCard.jsx
+|   |   |   +-- hotelSearch.jsx
+|   |   +-- pages/
+|   |   |   +-- Dashboard.jsx
+|   |   +-- redux/
+|   |   |   +-- hotelSlice.js
+|   |   |   +-- store.js
+|   |   |   +-- userSlice.js
+|   |   +-- routes/
+|   |   |   +-- ProtectedRoute.jsx
+|   |   +-- App.css
+|   |   +-- App.js
+|   |   +-- App.test.js
+|   |   +-- index.css
+|   |   +-- index.js
+|   |   +-- logo.svg
+|   |   +-- reportWebVitals.js
+|   |   +-- setupTests.js
+|   |   +-- supabaseClient.js
+|   +-- .gitignore
+|   +-- package-lock.json
+|   +-- package.json
+|   +-- README.md
+|
++-- .gitignore
++-- README.md
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
+Key Features Explained
+1. Authentication Flow
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Users can sign up or log in using Supabase authentication
+JWT tokens are stored securely and included in API requests
+Protected routes require authentication
 
-### Advanced Configuration
+2. Hotel Search & Filtering
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Search hotels by city code (e.g., PAR for Paris)
+Filter by date range, number of guests, price range
+Results are paginated with "Load More" functionality
 
-### Deployment
+3. Multi-Hotel Comparison
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Select multiple hotels from search results
+Click "Compare" to view side-by-side comparison
+Interactive charts show:
 
-### `npm run build` fails to minify
+Price trends across selected hotels
+Rating distribution
+Distance from city center comparison
+Quick summary of comparison
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. State Management
+
+Redux Toolkit for global state management
+Local storage persistence for:
+
+Selected hotels for comparison
+Search filters
+User preferences
+
+5. Data Visualization
+
+Recharts library for responsive charts
+Bar charts for price comparison
+Pie charts for rating distribution
+Line charts for price trends
+
+Deployment
+Backend Deployment (Railway/Render)
+
+# Install Railway CLI
+npm install -g @railway/cli
+# Login to Railway
+railway login
+# Initialize project
+railway init
+# Deploy
+railway up
+
+Frontend Deployment (Vercel)
+
+# Install Vercel CLI:
+npm install -g vercel
+# Deploy:
+cd frontend
+vercel
+
+
+Configuration
+# Amadeus API Setup
+
+Go to [Amadeus Developers Portal](https://developers.amadeus.com/)
+Create an account and get your API credentials
+Copy the API Key and Secret to your .env file
+
+# Supabase Setup
+
+Create a project at [Supabase](https://supabase.com/)
+Go to Settings > API
+Copy the Project URL and Anon Key
+Add them to your frontend .supabase file
+
+# Usage
+
+Sign Up / Login: Create an account or login with existing credentials
+Search Hotels: Enter city, dates, and number of guests
+Apply Filters: Narrow results by price, rating, amenities
+Select Hotels: Click checkboxes to select hotels for comparison
+Compare: Click "Compare Selected" button
+View Charts: Analyze price trends and ratings visually
+Book: (Future feature) Proceed to booking
