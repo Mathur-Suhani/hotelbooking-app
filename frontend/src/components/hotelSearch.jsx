@@ -26,12 +26,9 @@ import {
   Slide,
   IconButton,
   Divider,
-  Avatar,
-  Badge,
 } from "@mui/material";
 import { 
   Search, 
-  FilterList, 
   ExpandMore, 
   ExpandLess,
   CompareArrows,

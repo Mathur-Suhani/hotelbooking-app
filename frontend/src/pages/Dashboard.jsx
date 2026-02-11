@@ -24,8 +24,6 @@ import {
   Hotel,
   Home,
   BeachAccess,
-  FavoriteBorder,
-  Luggage,
   TrendingUp,
   Verified,
   Security,

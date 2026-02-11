@@ -9,8 +9,7 @@ const ProtectedRoute = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   
-  const isAuthenticated = useSelector((state) => state.user?.isAuthenticated);
-  const user = useSelector((state) => state.user?.user);
+  const { isAuthenticated } = useSelector((state) => state.user?.isAuthenticated);
 
   useEffect(() => {
     const checkAuth = async () => {
