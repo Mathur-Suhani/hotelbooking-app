@@ -10,12 +10,13 @@ const ProtectedRoute = ({ children }) => {
   const dispatch = useDispatch();
   
   const { isAuthenticated } = useSelector((state) => state.user?.isAuthenticated);
-  const user = useSelector((state) => state.user?.user);
+  // ✅ REMOVED: const user = useSelector((state) => state.user?.user); - was never used
 
   useEffect(() => {
     const checkAuth = async () => {
       try {
-        const { data: { session }, error } = await supabase.auth.getSession();
+        // ✅ FIXED: Removed unused 'error' from destructuring
+        const { data: { session } } = await supabase.auth.getSession();
 
         if (session && session.user) {
           
@@ -32,6 +33,8 @@ const ProtectedRoute = ({ children }) => {
           dispatch(clearUser());
         }
       } catch (err) {
+        // ✅ Error properly handled in catch block
+        console.error("Auth check error:", err);
         dispatch(clearUser());
       } finally {
         setLoading(false);
