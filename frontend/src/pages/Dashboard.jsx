@@ -16,6 +16,8 @@ import {
   MenuItem,
   Select,
   FormControl,
+  Card,
+  CardContent,
 } from "@mui/material";
 import {
   ExitToApp,
@@ -24,6 +26,10 @@ import {
   BeachAccess,
   FavoriteBorder,
   Luggage,
+  TrendingUp,
+  Verified,
+  Security,
+  Support,
 } from "@mui/icons-material";
 
 const Dashboard = () => {
@@ -396,37 +402,76 @@ const Dashboard = () => {
           </Typography>
         </Box>
 
-        <Grid container spacing={3} sx={{ mt: 4 }}>
+        <Grid container spacing={3} sx={{ mt: 2 }}>
           {[
-            { icon: "🏨", title: "Best Prices", desc: "Compare and save on accommodations" },
-            { icon: "⭐", title: "Verified Reviews", desc: "Real feedback from travelers" },
-            { icon: "🔒", title: "Secure Booking", desc: "Safe and encrypted payments" },
+            {
+              icon: <TrendingUp />,
+              title: "Best Price Guarantee",
+              desc: "Find the lowest prices or we'll refund the difference",
+              color: "#667eea",
+            },
+            {
+              icon: <Verified />,
+              title: "Verified Reviews",
+              desc: "Real feedback from millions of travelers worldwide",
+              color: "#19547b",
+            },
+            {
+              icon: <Security />,
+              title: "Secure Payments",
+              desc: "Your data is encrypted and protected with SSL",
+              color: "#764ba2",
+            },
+            {
+              icon: <Support />,
+              title: "24/7 Support",
+              desc: "Round-the-clock customer service in 40+ languages",
+              color: "#f5576c",
+            },
           ].map((feature, index) => (
-            <Grid item xs={12} md={4} key={index}>
-              <Paper
+            <Grid item xs={12} sm={6} md={3} key={index}>
+              <Card
                 sx={{
-                  p: 3,
-                  textAlign: "center",
-                  background: "rgba(255, 255, 255, 0.95)",
-                  backdropFilter: "blur(10px)",
-                  borderRadius: 2,
-                  transition: "all 0.3s",
+                  height: "100%",
+                  background: "white",
+                  borderRadius: 3,
+                  border: "1px solid #f0f0f0",
+                  transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
                   "&:hover": {
                     transform: "translateY(-8px)",
-                    boxShadow: "0 12px 28px rgba(0,0,0,0.15)",
+                    boxShadow: "0 20px 40px rgba(0,0,0,0.12)",
+                    borderColor: feature.color,
                   },
                 }}
               >
-                <Typography sx={{ fontSize: "3rem", mb: 1 }}>
-                  {feature.icon}
-                </Typography>
-                <Typography variant="h6" sx={{ fontWeight: 700, mb: 1 }}>
-                  {feature.title}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {feature.desc}
-                </Typography>
-              </Paper>
+                <CardContent sx={{ p: 3 }}>
+                  <Box
+                    sx={{
+                      width: 56,
+                      height: 56,
+                      borderRadius: 2,
+                      background: `linear-gradient(135deg, ${feature.color}15, ${feature.color}05)`,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      mb: 2,
+                    }}
+                  >
+                    <Box sx={{ fontSize: 28, color: feature.color }}>
+                      {feature.icon}
+                    </Box>
+                  </Box>
+                  <Typography
+                    variant="h6"
+                    sx={{ fontWeight: 700, mb: 1, fontSize: "1.1rem" }}
+                  >
+                    {feature.title}
+                  </Typography>
+                  <Typography variant="body2" sx={{ color: "#666", lineHeight: 1.6 }}>
+                    {feature.desc}
+                  </Typography>
+                </CardContent>
+              </Card>
             </Grid>
           ))}
         </Grid>
