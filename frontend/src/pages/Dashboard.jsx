@@ -42,6 +42,7 @@ const Dashboard = () => {
   const [checkOut, setCheckOut] = useState("");
   const [rooms, setRooms] = useState(1);
   const [adults, setAdults] = useState(2);
+  const [childrens, setChildrens] = useState(0);
 
   const handleLogout = async () => {
     try {
@@ -60,7 +61,7 @@ const Dashboard = () => {
     }
 
     navigate("/hotel-search", { 
-      state: { city, checkIn, checkOut, rooms, adults } 
+      state: { city, checkIn, checkOut, rooms, adults, childrens } 
     });
   };
 
@@ -341,9 +342,42 @@ const Dashboard = () => {
                       },
                     }}
                   >
-                    {[1, 2, 3, 4, 5, 6].map((num) => (
+                    {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
                       <MenuItem key={num} value={num}>
-                        {num} Adult{num > 1 ? "s" : ""}
+                        {num} {num > 1 ? "" : ""}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Grid>
+
+              <Grid item xs={6} md={1.5}>
+                <Typography 
+                  variant="caption" 
+                  sx={{ 
+                    color: "#666", 
+                    mb: 0.5, 
+                    display: "block",
+                    fontWeight: 600 
+                  }}
+                >
+                  Children
+                </Typography>
+                <FormControl fullWidth>
+                  <Select
+                    value={childrens}
+                    onChange={(e) => setChildrens(e.target.value)}
+                    size="medium"
+                    sx={{
+                      background: "#f8f9fa",
+                      "&:hover": {
+                        background: "#f0f1f3",
+                      },
+                    }}
+                  >
+                    {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
+                      <MenuItem key={num} value={num}>
+                        {num} {num > 1 ? "" : ""}
                       </MenuItem>
                     ))}
                   </Select>
