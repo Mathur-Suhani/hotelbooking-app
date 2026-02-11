@@ -10,6 +10,7 @@ const ProtectedRoute = ({ children }) => {
   const dispatch = useDispatch();
   
   const { isAuthenticated } = useSelector((state) => state.user?.isAuthenticated);
+  const user = useSelector((state) => state.user?.user);
 
   useEffect(() => {
     const checkAuth = async () => {

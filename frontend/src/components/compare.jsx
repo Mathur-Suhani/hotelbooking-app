@@ -8,8 +8,8 @@ import {
   Divider, Card, CardContent, Avatar, LinearProgress, Fade
 } from "@mui/material";
 import { 
-  Close, TrendingUp, Star, LocationOn, AttachMoney, 
-  Grade, Delete, Visibility, CompareArrows
+  Close, Star, LocationOn, AttachMoney, 
+  Grade, Delete, CompareArrows
 } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
 import { removeFromCompare, clearCompare } from "../redux/hotelSlice";

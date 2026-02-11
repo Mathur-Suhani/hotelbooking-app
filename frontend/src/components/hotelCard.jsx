@@ -8,7 +8,6 @@ import {
   Chip,
   Rating,
   Divider,
-  Checkbox,
 } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCompare, removeFromCompare } from "../redux/hotelSlice";
