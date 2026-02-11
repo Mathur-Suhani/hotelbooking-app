@@ -192,14 +192,19 @@ Line charts for price trends
 Deployment
 Backend Deployment (Railway/Render)
 
-# Install Railway CLI
-npm install -g @railway/cli
-# Login to Railway
-railway login
-# Initialize project
-railway init
-# Deploy
-railway up
+# Create a new Web Service on Render
+# Connect your GitHub repository
+# Configure the following:
+    Build Command: npm install
+    Start Command: node index.js
+    Root Directory: backend
+
+# Add environment variables in Render dashboard:
+    AMADEUS_API_KEY
+    AMADEUS_API_SECRET
+    PORT (set to 10000 or leave empty for Render's default)
+
+# Click "Deploy Web Service"
 
 Frontend Deployment (Vercel)
 
